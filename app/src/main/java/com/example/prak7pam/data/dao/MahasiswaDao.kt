@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.prak7pam.data.entity.Mahasiswa
 import kotlinx.coroutines.flow.Flow
 
@@ -22,6 +23,9 @@ interface MahasiswaDao {
     @Delete
     suspend fun deleteMahasiswa(mahasiswa: Mahasiswa) // Suspend digunakan dengan coroutine
 
+    // Update Mahasiswa
+    @Update
+    suspend fun updateMahasiswa(mahasiswa: Mahasiswa) // Memperbarui data di tabel
 
     @Insert
     suspend fun insertMahasiswa(
