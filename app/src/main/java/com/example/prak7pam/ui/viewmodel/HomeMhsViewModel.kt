@@ -15,4 +15,19 @@ import kotlinx.coroutines.flow.stateIn
 
 class HomeMhsViewModel (
     private val repositoryMhs: RepositoryMhs
-) : ViewModel()
+) : ViewModel() {
+
+    val homeUiState: StateFlow<HomeUiState> = repositoryMhs.getAllMahasiswa()
+        .filterNotNull()
+        .map {
+            HomeUiState (
+                listMhs = it.toList(),
+                isLoading = false,
+            )
+        }
+        .onStart {
+            emit(HomeUiState(isLoading = true))
+            delay(900)
+        }
+
+
