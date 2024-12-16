@@ -29,5 +29,15 @@ class HomeMhsViewModel (
             emit(HomeUiState(isLoading = true))
             delay(900)
         }
+        .catch {
+            emit(
+                HomeUiState(
+                    isLoading = false,
+                    isError = true,
+                    errorMessage = it.message ?: "Terjadi Kesalahan"
+                )
+            )
+        }
+
 
 
