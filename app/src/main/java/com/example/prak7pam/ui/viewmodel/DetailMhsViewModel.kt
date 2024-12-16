@@ -22,3 +22,11 @@ class DetailMhsViewModel(
 ) : ViewModel() {
     private val _nim: String = checkNotNull(savedStateHandle[DestinasiDetail.NIM])
 
+    val detailUiState: StateFlow<DetailUiState> = repositoryMhs.getMhs(_nim)
+        .filterNotNull()
+        .map {
+            DetailUiState(
+                detailUiEvent = it.toDetailUiEvent(),
+                isLoading = false,
+            )
+        }
