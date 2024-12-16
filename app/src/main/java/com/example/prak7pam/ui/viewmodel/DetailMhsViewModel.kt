@@ -43,3 +43,10 @@ class DetailMhsViewModel(
                 )
             )
         }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(2000),
+            initialValue =
+            DetailUiState(isLoading = true)
+        )
+
