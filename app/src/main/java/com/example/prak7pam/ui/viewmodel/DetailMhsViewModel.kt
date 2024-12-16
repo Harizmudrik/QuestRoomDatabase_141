@@ -30,3 +30,7 @@ class DetailMhsViewModel(
                 isLoading = false,
             )
         }
+        .onStart {
+            emit(DetailUiState(isLoading = true))
+            delay(600)
+        }
