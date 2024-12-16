@@ -15,4 +15,7 @@ interface RepositoryMhs {
 
     //deleteMhs
     suspend fun deleteMhs(mahasiswa: Mahasiswa) // Menghapus data mahasiswa
+
+    //updateMhs
+    suspend fun updateMhs(mahasiswa: Mahasiswa) // Memperbarui data mahasisiswa
 }
